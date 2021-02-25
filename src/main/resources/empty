@@ -1,3 +1,0 @@
-
-# # database init, including mysql
-spring.profiles.active=mysql
