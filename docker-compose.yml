@@ -2,11 +2,11 @@ version: "3"
 
 services:
       
-  app:
+  website:
     build: .
     restart: always
     ports:
-      - 8080:8080
+      - 8090:8080
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
@@ -16,11 +16,11 @@ services:
     networks:
       - net-backend
     depends_on:
-      - docker-db
+      - server-db
 
-  docker-db:
+  server-db:
     image: mysql:5.7
-    container_name: docker-db
+    container_name: server-db
     restart: always
     ports:
       - 3307:3306
