@@ -31,9 +31,13 @@ services:
       - MYSQL_PASSWORD=petclinic
       - MYSQL_DATABASE=petclinic
     volumes:
-      - "./conf.d:/etc/mysql/conf.d:ro"
+      - petclinic-data:/var/lib/mysql
     networks:
       - net-backend
+
+volumes:
+  petclinic-data:
+    driver: local
 
 networks:
   net-backend:
