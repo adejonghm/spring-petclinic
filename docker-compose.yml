@@ -1,9 +1,10 @@
-version: "3"
+version: "3.5"
 
 services:
       
   website:
-    build: .
+    image: adejonghm/petclinic:latest
+    # build: .
     restart: always
     ports:
       - 8090:8080
