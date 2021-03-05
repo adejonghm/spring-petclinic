@@ -10,19 +10,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
-                echo 'App successfully built'
+                sh 'mvn package -DskipTests'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing..'
-        //     }
-        // }
-        // stage('Deploy') {
-        //     steps {
-        //         echo 'Deploying....'
-        //     }
-        // }
+        
+        stage('Upload Artifact to Nexus') {
+            steps{
+                nexusArtifactUploader artifacts: [
+                    [
+                        artifactId: 'spring-petclinic', 
+                        classifier: 'target/', 
+                        file: 'target/spring-petclinic-2.4.2.jar', 
+                        type: 'jar'
+                    ]
+                ], 
+                credentialsId: 'nexus3', 
+                groupId: 'org.springframework.samples', 
+                nexusUrl: 'localhost:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'maven-releases', 
+                version: '2.4.2'
+            }
+        }
     }
 }
