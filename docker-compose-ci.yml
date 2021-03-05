@@ -12,7 +12,18 @@ services:
     user: root
     privileged: true
     restart: always
+  
+  Nexus:
+    image: sonatype/nexus3:latest
+    container_name: nexus3
+    ports:
+      - 8081:8081
+    volumes: 
+      - nexus-home:/nexus-data
 
 volumes:
   jenkins-home:
+    driver: local
+  
+  nexus-home:
     driver: local
