@@ -29,7 +29,7 @@ pipeline {
                 nexusUrl: 'localhost:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
-                repository: 'maven-releases', 
+                repository: 'petclinic-release', 
                 version: '2.4.2'
             }
         }
