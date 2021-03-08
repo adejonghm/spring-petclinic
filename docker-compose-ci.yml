@@ -1,23 +1,27 @@
 version: "3.5"
 
 services:
-  Jenkins:
+  jenkins:
     image: jenkins/jenkins:latest
     container_name: jenkins
     ports: 
       - 8080:8080
       - 50000:50000
+    networks:
+      - nexus-net
     volumes: 
       - jenkins-home:/var/jenkins_home
     user: root
     privileged: true
     restart: always
   
-  Nexus:
+  nexus:
     image: sonatype/nexus3:latest
     container_name: nexus3
     ports:
       - 8081:8081
+    networks:
+      - nexus-net
     volumes: 
       - nexus-home:/nexus-data
 
@@ -27,3 +31,6 @@ volumes:
   
   nexus-home:
     driver: local
+
+networks:
+  nexus-net:
