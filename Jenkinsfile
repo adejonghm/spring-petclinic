@@ -27,7 +27,7 @@ pipeline {
                     ], 
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: 'nexus3:8081',
+                    nexusUrl: 'host.docker.internal:8081',
                     groupId: 'org.springframework.samples',
                     version: '2.4.2',
                     repository: 'petclinic-release/',
