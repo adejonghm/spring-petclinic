@@ -25,13 +25,13 @@ pipeline {
                             type: 'jar'
                         ]
                     ], 
-                    nexusVersion: 'nexus3', 
+                    nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: 'localhost:8081', 
-                    groupId: 'org.springframework.samples', 
-                    version: '2.4.2'
-                    repository: 'petclinic-release/', 
-                    credentialsId: 'nexus_user', 
+                    nexusUrl: 'localhost:8081',
+                    groupId: 'org.springframework.samples',
+                    version: '2.4.2',
+                    repository: 'petclinic-release/',
+                    credentialsId: 'nexus_user'
                 );
             }
         }
