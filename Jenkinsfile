@@ -16,14 +16,6 @@ pipeline {
 
     // STAGES
     stages {
-        stage("Clone code from VCS") {
-            steps {
-                script {
-                    git 'https://github.com/adejonghm/spring-petclinic.git';
-                }
-            }
-        }
-
         stage("Maven Build") {
             steps {
                 sh "mvn package -DskipTests=true"
