@@ -1,11 +1,13 @@
 pipeline {
     // GENERAL SETTINGS 
-    agent {
-        label "master"
-    }
+    agent any
+    
+    // SETTING TOOLS
     tools {
         maven "Maven"
     }
+    
+    // DEFINE ENVIRONMENT VARIABLES
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
@@ -16,6 +18,12 @@ pipeline {
 
     // STAGES
     stages {
+        stage("Checkout the source code") {
+            steps{
+                git 'https://github.com/adejonghm/spring-petclinic'
+            }
+        }
+
         stage("Maven Build") {
             steps {
                 sh "mvn package -DskipTests=true"
