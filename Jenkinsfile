@@ -1,9 +1,7 @@
 pipeline {
     // GENERAL SETTINGS 
-    agent {
-        label 'main'
-    }
-    
+    agent any
+
     // SETTING TOOLS
     tools {
         maven "Maven"
@@ -20,11 +18,11 @@ pipeline {
 
     // STAGES
     stages {
-        stage("Checkout the source code") {
-            steps{
-                git 'https://github.com/adejonghm/spring-petclinic'
-            }
-        }
+        // stage("Checkout the source code") {
+        //     steps{
+        //         git 'https://github.com/adejonghm/spring-petclinic'
+        //     }
+        // }
 
         stage("Maven Build") {
             steps {
