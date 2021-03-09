@@ -1,6 +1,8 @@
 pipeline {
     // GENERAL SETTINGS 
-    agent any
+    agent {
+        label "main"
+    }
     tools {
         maven "Maven"
     }
