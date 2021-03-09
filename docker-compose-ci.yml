@@ -25,6 +25,8 @@ services:
     volumes: 
       - nexus-home:/nexus-data
 
+  # sonar:
+
 volumes:
   jenkins-home:
     driver: local
