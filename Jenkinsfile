@@ -4,13 +4,13 @@ pipeline {
     tools {
         maven "Maven"
     }
-    // environment {
-    //     NEXUS_VERSION = "nexus3"
-    //     NEXUS_PROTOCOL = "http"
-    //     NEXUS_URL = "nexus:8081"
-    //     NEXUS_REPOSITORY = "maven-nexus-repo"
-    //     NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
-    // }
+    environment {
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
+        NEXUS_URL = "nexus:8081"
+        NEXUS_REPOSITORY = "maven-nexus-repo"
+        NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+    }
 
     // STAGES
     stages {
