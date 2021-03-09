@@ -9,7 +9,7 @@ pipeline {
     
     // DEFINE ENVIRONMENT VARIABLES
     environment {
-        BRANCH_NAME = "main"
+        // BRANCH_NAME = "main"
         
         // Nexus variables
         NEXUS_VERSION = "nexus3"
@@ -21,11 +21,11 @@ pipeline {
 
     // STAGES
     stages {
-        stage("Checkout the source code") {
-            steps{
-                git 'https://github.com/adejonghm/spring-petclinic'
-            }
-        }
+        // stage("Checkout the source code") {
+        //     steps{
+        //         git 'https://github.com/adejonghm/spring-petclinic'
+        //     }
+        // }
 
         stage("Maven Build") {
             steps {
