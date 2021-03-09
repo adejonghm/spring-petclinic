@@ -2,13 +2,16 @@ pipeline {
     // GENERAL SETTINGS 
     agent any
 
-    // SETTING TOOLS
+    // TOOL INSTALL
     tools {
         maven "Maven"
     }
     
     // DEFINE ENVIRONMENT VARIABLES
     environment {
+        BRANCH_NAME = "main"
+        
+        // Nexus variables
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "nexus:8081"
@@ -18,17 +21,23 @@ pipeline {
 
     // STAGES
     stages {
-        // stage("Checkout the source code") {
-        //     steps{
-        //         git 'https://github.com/adejonghm/spring-petclinic'
-        //     }
-        // }
+        stage("Checkout the source code") {
+            steps{
+                git 'https://github.com/adejonghm/spring-petclinic'
+            }
+        }
 
         stage("Maven Build") {
             steps {
                 sh "mvn package -DskipTests=true"
             }
         }
+
+        // stage ('Sonar') {
+        //     steps{
+        //         // 
+        //     }
+        // }
 
         stage("Publish to Nexus Repo") {
             steps {
